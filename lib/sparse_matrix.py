@@ -23,9 +23,21 @@ class SparseMatrix:
         return matrix
 
     @classmethod
-    def random(cls, rows, cols, sparsity=0.2, value_range=(1, 10)):
-        pass
-        
+    def random(cls, rows, cols, density=0.2, value_range=(1, 10)):
+        import random
+        matrix = cls(rows, cols)
+        non_zero_elements = int(rows * cols * density)
+
+        for _ in range(non_zero_elements):
+            while True:
+                i = random.randint(0, rows - 1)
+                j = random.randint(0, cols - 1)
+                if matrix.access(i, j) == 0:
+                    value = random.uniform(value_range[0], value_range[1])
+                    matrix.insert(i, j, value)
+                    break
+
+        return matrix           
     
     # display matrix in a human-readable format
     def show(self, dense=False):
