@@ -49,7 +49,6 @@ class CLI:
                 return
 
         elif cmd == "access" and len(tokens) == 4:
-            print("oii")
             matrix_key = tokens[1]
             if not self._check_matrix_exists(matrix_key):
                 return
@@ -61,7 +60,6 @@ class CLI:
             print(f"Value at position ({i}, {j}): {value}")
 
         elif cmd == "insert" and len(tokens) == 5:
-            print("oi")
             matrix_key = tokens[1]
             if not self._check_matrix_exists(matrix_key):
                 return
